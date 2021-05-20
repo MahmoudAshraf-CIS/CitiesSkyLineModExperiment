@@ -1,0 +1,14 @@
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\obj\Debug\CitiesSkyLineModExperiment.csprojAssemblyReference.cache
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\obj\Debug\CitiesSkyLineModExperiment.csproj.CoreCompileInputs.cache
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\CitiesSkyLineModExperiment.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\CitiesSkyLineModExperiment.pdb
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\Assembly-CSharp.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\ColossalManaged.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\ICities.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\UnityEngine.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\PopsApiWrapper.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\obj\Debug\CitiesSkyLineModExperiment.csproj.CopyComplete
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\obj\Debug\CitiesSkyLineModExperiment.dll
+D:\Unity Projects\CitiesSkyLineModExperiment\CitiesSkyLineModExperiment\obj\Debug\CitiesSkyLineModExperiment.pdb
