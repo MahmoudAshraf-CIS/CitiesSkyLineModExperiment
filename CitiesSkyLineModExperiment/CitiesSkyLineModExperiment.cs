@@ -5,6 +5,9 @@ using System.Text;
 using UnityEngine;
 using ICities;
 using ColossalFramework.UI;
+using Leguar.TotalJSON;
+using Leguar.TotalJSON.Examples;
+using ColossalFramework.Plugins;
 
 /*
 this project was made following the guide here
@@ -41,14 +44,44 @@ namespace CitiesSkyLineModExperiment
 
 	public class ShowDemand : ThreadingExtensionBase
 	{
-		
+		private string SerializePlayerObjectToString()
+		{
+
+			// Create example player (c# object)
+			ExamplePlayerObject examplePlayer = new ExamplePlayerObject();
+			examplePlayer.SetTestValues();
+
+			// Print out current player data
+			Debug.Log("Original player: " + examplePlayer);
+
+			// Serialize ExamplePlayerObject to JSON object
+			JSON json = JSON.Serialize(examplePlayer);
+
+			// Output JSON
+			string jsonString = json.CreateString();
+			Debug.Log(jsonString);
+
+			// Content of 'jsonString' will be:
+			// {"name":"Test player","position":{"x":1.0,"y":2.0,"z":3.0},
+			// "playerColor":{"r":0.0,"g":1.0,"b":0.1,"a":0.9},"score":42000,"levelTimes":[31.41,42.0,12.3],
+			// "playerBackPack":[{"name":"axe","uses":99},{"name":"coin","uses":1}],"charClass":{"value__":1}}
+
+			return jsonString;
+
+		}
+
+
 		private bool _processed = false;
 		public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
 		{
 			Debug.Log(_processed);
-            if (Input.GetKeyDown(KeyCode.F12))
+            if (Input.GetKeyDown(KeyCode.F11))
             {
-				
+				Debug.Log("---> Running SerializeAndDeserialize.SerializePlayerObjectToString()");
+				DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "---> Running SerializeAndDeserialize.SerializePlayerObjectToString()");
+				string jsonString = SerializePlayerObjectToString();
+				DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, jsonString);
+
 				GameObject _buildingManagerGO = GameObject.Find("BuildingManager");
                 if (_buildingManagerGO)
                 {
