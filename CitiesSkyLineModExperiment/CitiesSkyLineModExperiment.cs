@@ -20,6 +20,8 @@ after the build the mod should be automatically placed inside
  */
 namespace CitiesSkyLineModExperiment
 {
+
+
 	public class RCWDemandMod : IUserMod
 	{
 		public string Name => "RCW Demand";
@@ -147,10 +149,135 @@ namespace CitiesSkyLineModExperiment
 					info
 						
 
-          building info are placed in 
-			
-         
+          building info are placed in 		         
          */
     }
+	public class JSONExample : ThreadingExtensionBase
+	{
+
+		/**
+		 the asset was tested in unity 5 and made sure that it's not depending on a dll 
+		it's all C# scripts
+		- Creat a new folder in the solution
+		- Copy the scripts into the folder 
+		- Include the scripts manually in the solution 
+			- Right click the solution name
+			- Add
+			- Existing Item 
+				brows the files inside the solution.
+		 */
+		private string SerializePlayerObjectToString()
+		{
+
+			// Create example player (c# object)
+			ExamplePlayerObject examplePlayer = new ExamplePlayerObject();
+			examplePlayer.SetTestValues();
+
+			// Print out current player data
+			Debug.Log("Original player: " + examplePlayer);
+
+			// Serialize ExamplePlayerObject to JSON object
+			JSON json = JSON.Serialize(examplePlayer);
+
+			// Output JSON
+			string jsonString = json.CreateString();
+			Debug.Log(jsonString);
+
+			// Content of 'jsonString' will be:
+			// {"name":"Test player","position":{"x":1.0,"y":2.0,"z":3.0},
+			// "playerColor":{"r":0.0,"g":1.0,"b":0.1,"a":0.9},"score":42000,"levelTimes":[31.41,42.0,12.3],
+			// "playerBackPack":[{"name":"axe","uses":99},{"name":"coin","uses":1}],"charClass":{"value__":1}}
+
+			return jsonString;
+
+		}
+
+
+		private bool _processed = false;
+		public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
+		{
+			 
+			if (Input.GetKeyDown(KeyCode.F11))
+			{				 
+				GameObject _buildingManagerGO = GameObject.Find("BuildingManager");
+				if (_buildingManagerGO)
+				{					
+					BuildingManager _bm = _buildingManagerGO.GetComponent<BuildingManager>();
+					if (_bm)
+					{					
+						 
+						JSON json = JSON.Serialize(_bm.m_buildings.m_buffer[0]);
+						string jsonString = json.CreateString();
+						Debug.Log(jsonString);
+
+					}
+					else
+					{
+						Debug.Log("_bm = null");
+					}
+				}
+				else
+				{
+					Debug.Log("_buildingManagerGO = null");
+				}
+			 
+			}
+
+		 
+		}
+	}
+	
+	public class Test
+    {
+		public Test()
+        {
+			Debug.Log("Test");
+        }
+    }
+	public class MyBuildingExtension : IBuildingExtension
+	{
+
+		List<ushort> m_buildingIds;
+		public MyBuildingExtension() 
+        {
+			m_buildingIds = new List<ushort>();
+		}
+		public  void OnBuildingCreated(ushort id)
+        {
+			Debug.Log("Building " + id + " OnBuildingCreated");
+			m_buildingIds.Add(id);
+        }
+
+        public void OnBuildingReleased(ushort id)
+        {
+			Debug.Log("Building " + id + " OnBuildingReleased");
+			m_buildingIds.Remove(id);
+        }
+
+        public void OnCreated(IBuilding building)
+        {             
+			Debug.Log("Building " + building + " OnCreated");			 
+		}
+
+        public SpawnData OnCalculateSpawn(Vector3 location, SpawnData spawn)
+        {
+			Debug.Log("OnCalculateSpawn");
+			Debug.Log(spawn);
+            return spawn;
+
+        }
+
+        public void OnReleased()
+        {
+			Debug.Log("OnReleased");
+
+		}
+
+		public void OnBuildingRelocated(ushort id)
+        {
+			Debug.Log("OnBuildingRelocated " + id);
+
+		}
+	}
 
 }
