@@ -74,25 +74,33 @@ namespace CitiesSkyLineModExperiment
 		private bool _processed = false;
 		public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
 		{
-			Debug.Log(_processed);
+			//Debug.Log(_processed);
             if (Input.GetKeyDown(KeyCode.F11))
             {
-				Debug.Log("---> Running SerializeAndDeserialize.SerializePlayerObjectToString()");
-				DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "---> Running SerializeAndDeserialize.SerializePlayerObjectToString()");
-				string jsonString = SerializePlayerObjectToString();
-				DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, jsonString);
+				//Debug.Log("---> Running SerializeAndDeserialize.SerializePlayerObjectToString()");
+				//DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "---> Running SerializeAndDeserialize.SerializePlayerObjectToString()");
+				//string jsonString = SerializePlayerObjectToString();
+				//DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, jsonString);
 
 				GameObject _buildingManagerGO = GameObject.Find("BuildingManager");
                 if (_buildingManagerGO)
                 {
-					Debug.Log("bingo _buildingManagerGO");
+					//Debug.Log("bingo _buildingManagerGO");
 					BuildingManager _bm = _buildingManagerGO.GetComponent<BuildingManager>();
                     if (_bm)
                     {
-						Debug.Log("bingo _bm");
+						//Debug.Log("bingo _bm");
 						Debug.Log(_bm.m_buildings.m_buffer.ToString());
-                    }
-                    else
+
+
+						// Output JSON
+						Debug.Log(_bm.m_buildings.m_buffer[0]);
+						JSON json = JSON.Serialize(_bm.m_buildings.m_buffer[0]);
+						string jsonString = json.CreateString();
+						Debug.Log(jsonString);
+
+					}
+					else
                     {
 						Debug.Log("_bm = null");
 					}
