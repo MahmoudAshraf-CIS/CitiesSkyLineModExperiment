@@ -1,0 +1,14 @@
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\ExtendedBuildings.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\ExtendedBuildings.pdb
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\Assembly-CSharp.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\ColossalManaged.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\ICities.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\UnityEngine.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\PopsApiWrapper.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\obj\Debug\ExtendedBuildings.csprojAssemblyReference.cache
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\obj\Debug\ExtendedBuildings.csproj.CoreCompileInputs.cache
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\obj\Debug\ExtendedBuildings.csproj.CopyComplete
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\obj\Debug\ExtendedBuildings.dll
+D:\Unity Projects\Cities-Skylines-Extended-Building-Info\ExtendedBuildings\obj\Debug\ExtendedBuildings.pdb
