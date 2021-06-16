@@ -48,6 +48,8 @@ namespace ExtendedBuildings
 
         UIButton descriptionButton;
         UILabel descriptionLabel;
+        UIRadialChart _rChart;
+
 
         ushort selectedBuilding;
         private static bool showDescription = true;
@@ -120,11 +122,14 @@ namespace ExtendedBuildings
             
             descriptionLabel = AddUIComponent<UILabel>();
             descriptionButton = AddUIComponent<UIButton>();
+            _rChart = CreateExampleTwoSlicedRadialChart(this, "Chart name");
+            //_rChart.position = new Vector3(25, 250);
+
 
             base.Awake();
 
         }
-
+          
 
         private void LoadTextFiles()
         {
@@ -485,7 +490,7 @@ namespace ExtendedBuildings
             y += vertPadding;
             SetPos(_mCustomMessage, x, y, true);
             y += vertPadding;
-           
+            _rChart.relativePosition = new Vector3(x +80, y+30);
             //SetPos(descriptionButton, x, y, true);
             y += vertPadding;
             descriptionButton.relativePosition = new Vector3(x, y);
@@ -529,7 +534,7 @@ namespace ExtendedBuildings
                 }
             }
             height = y;
-
+            UpdateExampleChart();
         }
 
         private string GetDescription(string bName, ushort buildingId, ItemClass.Zone zone, ItemClass.SubService ss)
@@ -615,6 +620,50 @@ namespace ExtendedBuildings
                 baseSub = this.baseBuildingWindow.GetType().GetField("m_InstanceID", BindingFlags.NonPublic | BindingFlags.Instance);
             }
             return (InstanceID)baseSub.GetValue(this.baseBuildingWindow);
+        }
+        public static UIRadialChart CreateExampleTwoSlicedRadialChart(UIComponent parent, string name)
+        {
+            UIRadialChart radialChart = parent.AddUIComponent<UIRadialChart>();
+            radialChart.name = name;
+
+            radialChart.size = new Vector3(150f, 150f);
+            radialChart.spriteName = "PieChartBg";
+
+            radialChart.AddSlice();
+            UIRadialChart.SliceSettings slice = radialChart.GetSlice(0);
+            Color32 colorYellow = new Color32(255, 255, 0, 128);
+            slice.outterColor = colorYellow;
+            slice.innerColor = colorYellow;
+
+            radialChart.AddSlice();
+            UIRadialChart.SliceSettings slice1 = radialChart.GetSlice(1);
+            Color32 colorRed = new Color32(255, 0, 0, 128);
+            slice1.outterColor = colorRed;
+            slice1.innerColor = colorRed;
+
+
+            radialChart.AddSlice();
+            UIRadialChart.SliceSettings slice2 = radialChart.GetSlice(2);
+            Color32 colorGreen = new Color32(0, 255, 0, 128);
+            slice2.outterColor = colorGreen;
+            slice2.innerColor = colorGreen;
+
+             
+
+            radialChart.SetValues(0.2f, 0.3f, 0.5f);
+            radialChart.tooltip = "Some message when hover the chart";
+            return radialChart;
+        }
+
+        float v1, v2, v3;
+        void UpdateExampleChart()
+        {
+             
+            v1 = (Mathf.Sin(Time.time) + 1) / 4;
+            v2 = (Mathf.Cos(Time.time) + 1) / 4;
+            v3 = 1 - (v1 + v2);
+            _rChart.SetValues(v1, v2, v3);
+
         }
 
     }
